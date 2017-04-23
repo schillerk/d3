@@ -15,8 +15,8 @@ vals = ['flight_index','num_o_ring_distress','launch_temp','leak_check_pressure'
 function plot(xIndex, yIndex) {
 	var xVal = vals[xIndex];
 	var yVal = vals[yIndex];
-	console.log(xVal);
-	console.log(yVal);
+	// console.log(xVal);
+	// console.log(yVal);
 	// Next, we will load in our CSV of data
 	d3.csv('challenger.csv', function(csvData) {
 		data = csvData;
@@ -94,11 +94,32 @@ function plot(xIndex, yIndex) {
 			.data(csvData);
 		circles.enter()
 			.append('svg:circle')
-			.attr('class', 'dataPoint')
+			.attr('class', function(d) { return "x" + parseInt(d['flight_index']); })
 			.attr('cx', function(d) { return xScale(d[xVal]); })
 			.attr('cy', function(d) { return yScale(d[yVal]); })
-			.attr('r', 2)
+			.attr('r', 5)
+			.style("fill", "red");
 
+		circles
+			.on('mouseover', function() {
+				curPoint = d3.select(this);
+				d3.selectAll("." + curPoint.attr('class'))
+					.attr('r', 10);
+			})
+
+			.on('mouseout', function() {
+				curPoint = d3.select(this);
+				d3.selectAll("." + curPoint.attr('class'))
+					.attr('r', 5);
+			})
+		
+			.on('click', function() {
+				curPoint = d3.select(this);
+				currentColor = curPoint.attr("style")
+				newColor = currentColor == "fill: red;" ? "blue" : "red";
+				d3.selectAll("." + curPoint.attr("class"))
+					.style("fill", newColor);
+			});
 	});
 }
 
@@ -144,8 +165,8 @@ function setYval(val) {
 }
 
 
-for(x = 0; x < 4; x++) {
-	for(y = 0; y < 4; y++) {
+for(x = 0; x < 5; x++) {
+	for(y = 0; y < 5; y++) {
 		plot(x,y);				
 	}
 }

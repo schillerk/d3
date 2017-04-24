@@ -81,7 +81,6 @@ function plot(xIndex, yIndex) {
 		 			var y = yScales[i](d[vals[i]]);
 		 			pointsString += parseInt(x) + "," + parseInt(y) + " ";
 		 		}
-		 		console.log(pointsString);
 		 		return pointsString; 
 		 	})
 		 	.attr("fill", "none")
@@ -90,14 +89,17 @@ function plot(xIndex, yIndex) {
 
 		lines
 			.on('click', function() {
-				d3.select(this)
-				 	.attr("stroke", "red")
+				curLine = d3.select(this);
+				currentColor = curLine.attr("stroke")
+				console.log(currentColor);
+				newColor = currentColor == "red" ? "black" : "red";
+				curLine.attr("stroke", newColor)
 			});
 
 		lines
 			.on('mouseover', function() {
 				d3.select(this)
-				 	.attr("stroke-width", "5");
+				 	.attr("stroke-width", "7");
 			});
 
 		lines

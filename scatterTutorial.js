@@ -101,6 +101,10 @@ function plot(xIndex, yIndex) {
 			.style("fill", "red");
 
 		circles
+			.append('svg:title')
+			.text(function(d) {return "flight index: " + d['flight_index']; });
+
+		circles
 			.on('mouseover', function() {
 				curPoint = d3.select(this);
 				d3.selectAll("." + curPoint.attr('class'))

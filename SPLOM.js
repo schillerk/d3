@@ -45,7 +45,6 @@ function plot(xIndex, yIndex, svg) {
 
 			// LAB
 			// Build axes! (These are kind of annoying, actually...)
-			console.log(xIndex, yIndex);
 			xAxis = d3.svg.axis()
 						.scale(xScale)
 						.orient('bottom')

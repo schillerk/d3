@@ -53,11 +53,11 @@ function plot(xIndex, yIndex, svg) {
 						.attr('class', 'axis')
 						.attr('transform', 'translate(0,' + (SPLOMh - SPLOMxOffset + yBase) + ')')
 						.call(xAxis);
-			// xLabel = svg.append('text')
-			// 			.attr('class','label')
-			// 			.attr('x', SPLOMw/2 + 20 + xBase)
-			// 			.attr('y', SPLOMh - 5 + yBase)
-			// 			.text(SPLOMaxis_names[xVal]);
+			xLabel = svg.append('text')
+						.attr('class','label')
+						.attr('x', SPLOMw/2 + 20 + xBase)
+						.attr('y', SPLOMh - 5 + yBase)
+						.text(SPLOMaxis_names[xVal]);
 
 			yAxis = d3.svg.axis()
 						.scale(yScale)
@@ -66,15 +66,13 @@ function plot(xIndex, yIndex, svg) {
 			yAxisG = svg.append('g')
 						.attr('class', 'axis')
 						.attr('transform', 'translate(' + (SPLOMyOffset + xBase) + ',0)')
-						.attr('left', xBase)
-						.attr('position', 'absolute')
 						.call(yAxis);
-			// yLabel = svg.append('text')
-			// 			.attr('class','label')
-			// 			.attr('transform', 'rotate(-90)')
-			// 			.attr('x', (-SPLOMyOffset-55 - xBase))
-			// 			.attr('y', (yBase))
-			// 			.text(SPLOMaxis_names[xVal]);
+			yLabel = svg.append('text')
+						.attr('class','label')
+						.attr('transform', 'rotate(-90)')
+						.attr('x', (-SPLOMyOffset-55 - xBase))
+						.attr('y', (yBase))
+						.text(SPLOMaxis_names[xVal]);
 
 			for (i = 0; i < 23; i++) {
 				circle = svg.append('circle')

@@ -53,14 +53,14 @@ d3.csv('challenger.csv', function(csvData) {
 			.attr('x', w*x+100)
 			.attr('y', 30)
 			.text(axis_names[vals[x]]);
-		svg.append('text')
-			.attr('x', w*x+100)
-			.attr('y', 50)
-			.text(d3.max(data, function(d) { return parseFloat(d[vals[x]]); }));
-		svg.append('text')
-			.attr('x', w*x+100)
-			.attr('y', h)
-			.text(d3.min(data, function(d) { return parseFloat(d[vals[x]]); }));
+		// svg.append('text')
+		// 	.attr('x', w*x+100)
+		// 	.attr('y', 50)
+		// 	.text(d3.max(data, function(d) { return parseFloat(d[vals[x]]); }));
+		// svg.append('text')
+		// 	.attr('x', w*x+100)
+		// 	.attr('y', h)
+		// 	.text(d3.min(data, function(d) { return parseFloat(d[vals[x]]); }));
 		svg.append('rect')
 			.attr('index', x)
 			.attr('x', w*x+100)
@@ -69,13 +69,14 @@ d3.csv('challenger.csv', function(csvData) {
 			.attr('height', h-yOffset)
 			.attr('opacity', .2)
 			.attr('fill', (d) => { return x==defaultColoring ? '#239399' : 'black'; });
-		svg.append('line')
-			.attr('x1', w*x+105)
-			.attr('y1', 60)
-			.attr('x2', w*x+105)
-			.attr('y2', h-yOffset+60)
-			.attr("stroke-width", 1)
-			.attr("stroke", "black");
+		yAxis = d3.svg.axis()
+			.scale(yScales[x])
+			.orient('left')
+			.ticks(5);
+		yAxisG = svg.append('g')
+			.attr('class', 'axis')
+			.attr('transform', 'translate(' + (w*x+105) + ',0)')
+			.call(yAxis);
 	}
 
 	lines = svg.selectAll('polyline')

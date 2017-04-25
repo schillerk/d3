@@ -104,6 +104,7 @@
 
 	.graph-title {
 		text-align: center;
+		margin-bottom: 50px;
 	}
 </style>
 </head>
@@ -135,11 +136,29 @@
 		</h3>
 	</div>
 
-	<h1 class="graph-title">Scatterplot matrix</h1>
+
 	<div class="render-target d3-wrap1">
+		<div class="graph-title">
+			<h1>Scatterplot Matrix</h1>
+			<h3>
+				Hover to enlarge.
+				Click to highlight.
+				Hover and hold to see label.
+			</h3>
+		</div>	
 		<div id="pointsSVG"></div>
 	</div>
+
+
 	<div class="render-target d3-wrap2">
+		<div class="graph-title">
+			<h1>Parallel Coordinates</h1>
+			<h3>
+				Hover to enlarge.
+				Click to highlight.
+				Click a vertical bar to color on that axis.
+			</h3>
+	</div>	
 		<div id="pointsSVG2"></div>
 	</div>
 

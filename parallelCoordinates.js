@@ -9,6 +9,11 @@ const yOffset = 80;		// Space for y-axis labels
 const margin = 0;		// Margin around visualization
 const vals = ['flight_index','num_o_ring_distress','launch_temp','leak_check_pressure','tufte_metric'];
 const defaultColoring = 2;
+const axis_names = {'flight_index': 'Flight Index', 
+			  		'num_o_ring_distress': 'O-rings in Distress',
+			  		'launch_temp': 'Launch Temperature (F)',
+			  		'leak_check_pressure': 'Leak-check Pressure (psi)',
+			 		'tufte_metric': 'Tufte Metric'};
 
 // LAB: Load in our CSV of data
 d3.csv('challenger.csv', function(csvData) {
@@ -47,7 +52,7 @@ d3.csv('challenger.csv', function(csvData) {
 		svg.append('text')
 			.attr('x', w*x+100)
 			.attr('y', 30)
-			.text(vals[x]);
+			.text(axis_names[vals[x]]);
 		svg.append('text')
 			.attr('x', w*x+100)
 			.attr('y', 50)

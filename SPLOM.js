@@ -11,7 +11,7 @@ const buffer = 25;
 const defaultColor = "rgb(250, 200, 250)";
 const selectedColor = "rgb(250, 200, 0)";
 const SPLOMvals = ['flight_index','num_o_ring_distress','launch_temp','leak_check_pressure','tufte_metric'];
-const axis_names = {'flight_index': 'Flight Index', 
+const SPLOMaxis_names = {'flight_index': 'Flight Index', 
 			  		'num_o_ring_distress': 'O-rings in Distress',
 			  		'launch_temp': 'Launch Temperature (F)',
 			  		'leak_check_pressure': 'Leak-check Pressure (psi)',
@@ -57,8 +57,7 @@ function plot(xIndex, yIndex, svg) {
 					.attr('class','label')
 					.attr('x', SPLOMw/2 + 20 + xBase)
 					.attr('y', SPLOMh - 5 + yBase)
-					.text(axis_names[xVal]);
-					// .text(yIndex);
+					.text(SPLOMaxis_names[xVal]);
 
 		yAxis = d3.svg.axis()
 					.scale(yScale)
@@ -75,11 +74,9 @@ function plot(xIndex, yIndex, svg) {
 					.attr('transform', 'rotate(-90)')
 					.attr('x', (-SPLOMyOffset-55 - xBase))
 					.attr('y', (yBase))
-					.text(axis_names[xVal]);
-					// .text(yIndex);
-		// console.log(xIndex, yIndex, axis_names[xVal], axis_names[yVal]);
+					.text(SPLOMaxis_names[xVal]);
 
-		for (i = 1; i < 23; i++) {
+		for (i = 0; i < 23; i++) {
 			circle = svg.append('circle')
 						.attr('class', "x" + parseInt(i))
 						.attr('cx', xScale(data[i][xVal]))
@@ -89,7 +86,7 @@ function plot(xIndex, yIndex, svg) {
 		
 			circle
 				.append('svg:title')
-				.text(function(d) {return SPLOMvals.map(val =>  "\n" + axis_names[val] + ": " + data[i][val]); } );
+				.text(function(d) {return SPLOMvals.map(val =>  "\n" + SPLOMaxis_names[val] + ": " + data[i][val]); } );
 
 			circle
 				.on('mouseover', function() {

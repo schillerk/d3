@@ -1,8 +1,8 @@
 We used the standard Challenger dataset.
 
-To see our final result, open viz.html in Chrome.
+To see our final result, run python3 -m http.server and navigate to http://localhost:8000/viz.html.
 
-To see the visualizations individually, open SPLOM.html for part 1 and parallelCoordinates.html for part 2.
+To see the visualizations individually, goto to http://localhost:8000/SPLOM.html for part 1 and http://localhost:8000/parallelCoordinates.html for part 2.
 
 The scatterplot matrix has axis titles down the diagonal, with the corresponding graphs making up a grid. The label to the side of the chart is the yaxis, the label to the top or bottom is the xaxis. You can hover over any point to enlarge it across all charts, click on it to highlight it, and hover and hold for a second to see the data point’s label.
 

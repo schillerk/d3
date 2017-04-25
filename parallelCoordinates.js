@@ -98,6 +98,13 @@ d3.csv('challenger.csv', function(csvData) {
 	 	.attr("stroke-width", "2");
 
 	lines
+		.append('svg:title')
+		.text(function(d) {
+			var lineIndex = d['flight_index']-1;
+			return vals.map(val =>  "\n" + axis_names[val] + ": " + data[lineIndex][val]); 
+		} );
+
+	lines
 		.on('click', function() {
 			curLine = d3.select(this);
 			currentColor = curLine.attr("stroke")

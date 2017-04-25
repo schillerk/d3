@@ -17,25 +17,37 @@
 		font-weight: 400;
 		font-style: normal;
 	}
+
+	.heading-wrap {
+		position: absolute;
+		left: 0;
+	  	right: 0;
+  		margin: 0 auto;
+	}
+
 	.heading {
-		margin-top: 30px;
+		position: relative;
+		text-align: center;
+		margin-top: calc(30px + 1vw);
 		margin-bottom: 50px;
+		color: white;
+		font-size: calc(5px + 2vw);
+		margin-right: 100px;
+		margin-left: 100px;
 	}
 
 	.text {
 		text-align: center;
 		font-family: 'Open Sans', sans-serif;
-		color: #222;
 	}
 
 	h1 {
 		margin-bottom: -10px;
-		font-size: 24px;
 	}
 
 	h2 {
 		font-weight: 500;
-		font-size: 18px;
+		font-size: 25px;
 	}
 
 	h3 {
@@ -57,6 +69,8 @@
 	body {
 		font-family: sans-serif;
 		font-size: 11px;
+		margin: 0;
+		padding: 0;
 	}
 
 	.axis path,
@@ -106,13 +120,28 @@
 		text-align: center;
 		margin-bottom: 50px;
 	}
+
+	.image-wrap {
+		max-height: 800px;
+		overflow: hidden;
+		margin-bottom: 50px;
+	}
+
+	.fullscreen-image {
+		width: 100%;
+	}
 </style>
 </head>
 
 <body>
-	<div class="heading text">
-		<h1>Challenger Space Shuttle O-Rings</h1>
-		<h2>by Sam and Kyle</h2>
+	<div class="image-wrap">
+		<div class='heading-wrap'>
+			<div class="heading text">
+				<h1>Visualizing the Challenger O-Rings</h1>
+				<h2>by Sam and Kyle</h2>
+			</div>
+		</div>
+		<img src="challenger.jpg" class="fullscreen-image">
 	</div>
 	<div class="paragraph text">
 		<h4 class="epigraph">

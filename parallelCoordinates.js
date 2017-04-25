@@ -46,7 +46,7 @@ d3.csv('challenger.csv', function(csvData) {
 	// LAB Next, we will create an SVG element to contain our visualization.
 	svg = d3.select('#pointsSVG2').append('svg:svg')
 				.attr('width', w*5)
-				.attr('height', h*2);
+				.attr('height', h);
 
 	for(x = 0; x < 5; x++) {
 		svg.append('text')
@@ -68,14 +68,7 @@ d3.csv('challenger.csv', function(csvData) {
 			.attr('width', 10)
 			.attr('height', h-yOffset)
 			.attr('opacity', .2)
-			.attr('fill', (d) => { return x==defaultColoring ? 'red' : 'black'; });
-		// svg.append('line')
-		// 	.attr('x1', w*x+105)
-		// 	.attr('y1', 60)
-		// 	.attr('x2', w*x+105)
-		// 	.attr('y2', h-yOffset+60)
-		// 	.attr("stroke-width", 1)
-		// .attr("stroke", "black");
+			.attr('fill', (d) => { return x==defaultColoring ? '#239399' : 'black'; });
 		yAxis = d3.svg.axis()
 			.scale(yScales[x])
 			.orient('left')
@@ -133,7 +126,7 @@ d3.csv('challenger.csv', function(csvData) {
 			curRect = d3.select(this);
 			index = curRect.attr('index');
 			curRect
-				.attr('fill', 'red');
+				.attr('fill', '#239399');
 			selectedLines = d3.selectAll("[stroke=black]");
 			lines
 				.attr("unclick-stroke", (d) => { return lineColor(d, 0); })

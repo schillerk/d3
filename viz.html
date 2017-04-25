@@ -1,0 +1,151 @@
+<html>
+<head>
+<script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
+<!-- google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800" rel="stylesheet">
+<title>Assignment 2</title>
+<style type="text/css">
+	.epigraph {
+		font-weight: 400;
+		font-style: italic;
+		color: #444;	
+		font-size: 12px;
+	}
+
+	.citation {
+		font-size: 10px;
+		font-weight: 400;
+		font-style: normal;
+	}
+	.heading {
+		margin-top: 30px;
+		margin-bottom: 50px;
+	}
+
+	.text {
+		text-align: center;
+		font-family: 'Open Sans', sans-serif;
+		color: #222;
+	}
+
+	h1 {
+		margin-bottom: -10px;
+		font-size: 24px;
+	}
+
+	h2 {
+		font-weight: 500;
+		font-size: 18px;
+	}
+
+	h3 {
+		font-weight: 500;
+		font-size: 15px;
+	}
+
+	.paragraph {
+		max-width: 600px;
+		margin: auto;
+		margin-bottom: 50px;
+		text-align: left;
+	}
+
+	h4 {
+		font-weight: 500;
+		font-size: 14px;
+	}
+	body {
+		font-family: sans-serif;
+		font-size: 11px;
+	}
+
+	.axis path,
+	.axis line {
+		fill: none;
+		stroke: #000;
+		shape-rendering: crispEdges;
+	}
+
+	circle {
+		fill: #f00; 
+		stroke: #000;
+	}
+
+	.label {
+		text-anchor: middle;
+		font-size: 12px;
+		font-weight: bold;
+		cursor: pointer;
+	}
+
+	.render-target {
+		height: 100%;
+		display: block;
+		margin: auto;
+		position: relative;
+	}
+
+	.d3-wrap1 {
+		/*HACK*/
+		/*I couldn't get the d3 elements to center*/
+		/*so I'm hardcoding their width*/
+		width: 1125px;
+	}
+	
+	.d3-wrap2 {
+		/*HACK*/
+		/*I couldn't get the d3 elements to center*/
+		/*so I'm hardcoding their width*/
+		width: 1000px;
+		/*HACK #2*/
+		/*I honestly don't know what went wrong here*/
+		margin-top: 400px;
+	}
+
+	.graph-title {
+		text-align: center;
+	}
+</style>
+</head>
+
+<body>
+	<div class="heading text">
+		<h1>Challenger Space Shuttle O-Rings</h1>
+		<h2>by Sam and Kyle</h2>
+	</div>
+	<div class="paragraph text">
+		<h4 class="epigraph">
+			<p>"The motivation for collecting this database was the explosion of the USA Space Shuttle Challenger on 28 January, 1986. An investigation ensued into the reliability of the shuttle's propulsion system. The explosion was eventually traced to the failure of one of the three field joints on one of the two solid booster rockets. Each of these six field joints includes two O-rings, designated as primary and secondary, which fail when phenomena called erosion and blowby both occur.</p>
+
+			<p>The night before the launch a decision had to be made regarding launch safety. The discussion among engineers and managers leading to this decision included concern that the probability of failure of the O-rings depended on the temperature t at launch, which was forecase to be 31 degrees F. There are strong engineering reasons based on the composition of O-rings to support the judgment that failure probability may rise monotonically as temperature drops. One other variable, the pressure s at which safety testing for field join leaks was performed, was available, but its relevance to the failure process was unclear.</p>
+
+			<p>Draper's paper includes a menacing figure graphing the number of field joints experiencing stress vs. liftoff temperature for the 23 shuttle flights previous to the Challenger disaster. No previous liftoff temperature was under 53 degrees F. Although tremendous extrapolation must be done from the given data to assess risk at 31 degrees F, it is obvious even to the layman "to foresee the unacceptably high risk created by launching at 31 degrees F." For more information, see Draper (1993) or the other previous analyses."</p>
+
+			<p class="citation">UCI Machine Learning Repository, Challenger USA Space Shuttle O-Ring Data Set: https://archive.ics.uci.edu/ml/datasets/Challenger+USA+Space+Shuttle+O-Ring. Adapted from Draper,D. (1993). Assessment and propagation of model uncertainty. In Proceedings of the Fourth International Workshop on Artificial Intelligence and Statistics (pp. 497--509). Ft. Lauderdale, FL: Unpublished.</p>
+
+		</h4>
+	</div>
+	<div class="paragraph text">
+		<h3>
+			<p>In our own work, we were interested in visualizing data from the Challenger explosion and attempting to determine how better visualization techniques than those available at the time may help explain, or even prevent the 1986 tragedy.</p>
+
+			<p>Using multidimensional presentation, interaction and design principles from Ware, Cairo and Tufte, we've build two charts, meant to be used together to investigate real data from the launch.</p>
+
+			<p>Thanks to UCI's labeled dataset, we're given the added benefit of hindsight formalized in the Tufte Metric, a measure of how much damage O-rings actually experienced during the flight. What factors contributed to O-ring damage? What factors would require mitigation or special attention to prevent O-ring damage in the future?</p>
+		</h3>
+	</div>
+
+	<h1 class="graph-title">Scatterplot matrix</h1>
+	<div class="render-target d3-wrap1">
+		<div id="pointsSVG"></div>
+	</div>
+	<div class="render-target d3-wrap2">
+		<div id="pointsSVG2"></div>
+	</div>
+
+	<script type="text/javascript" src="SPLOM.js"></script>
+	<script type="text/javascript" src="parallelCoordinates.js"></script>
+</body>
+
+
+</html>

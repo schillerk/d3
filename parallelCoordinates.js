@@ -2,13 +2,13 @@
 // LAB marks code taken from Eric Alexander's d3_lab
 
 // LAB: First, we will create some constants to define non-data-related parts of the visualization
-w = 200;			// Width of our visualization
-h = 500;			// Height of our visualization
-xOffset = 40;		// Space for x-axis labels
-yOffset = 80;		// Space for y-axis labels
-margin = 0;		// Margin around visualization
-vals = ['flight_index','num_o_ring_distress','launch_temp','leak_check_pressure','tufte_metric'];
-defaultColoring = 2;
+const w = 200;			// Width of our visualization
+const h = 500;			// Height of our visualization
+const xOffset = 40;		// Space for x-axis labels
+const yOffset = 80;		// Space for y-axis labels
+const margin = 0;		// Margin around visualization
+const vals = ['flight_index','num_o_ring_distress','launch_temp','leak_check_pressure','tufte_metric'];
+const defaultColoring = 2;
 
 // LAB: Load in our CSV of data
 d3.csv('challenger.csv', function(csvData) {
@@ -39,9 +39,9 @@ d3.csv('challenger.csv', function(csvData) {
 	};
 
 	// LAB Next, we will create an SVG element to contain our visualization.
-	svg = d3.select('#pointsSVG').append('svg:svg')
+	svg = d3.select('#pointsSVG2').append('svg:svg')
 				.attr('width', w*5)
-				.attr('height', h);
+				.attr('height', h*2);
 
 	for(x = 0; x < 5; x++) {
 		svg.append('text')
@@ -96,7 +96,6 @@ d3.csv('challenger.csv', function(csvData) {
 		.on('click', function() {
 			curLine = d3.select(this);
 			currentColor = curLine.attr("stroke")
-			console.log(currentColor);
 			newColor = currentColor == "black" ? curLine.attr('unclick-stroke') : "black";
 			curLine.attr("stroke", newColor)
 		});

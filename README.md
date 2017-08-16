@@ -1,6 +1,10 @@
-We used the standard Challenger dataset.
+## Scatterplot Matrix and Parallel Coordinates Visualizations
 
-To see our final result, run python3 -m http.server and navigate to http://localhost:8000/viz.html.
+We used the standard Challenger dataset to make these visualizations.
+
+To see our final result, ssh into project folder from command line, and run 
+"python3 -m http.server" 
+Then navigate to http://localhost:8000/viz.html in a browser. 
 
 To see the visualizations individually, goto to http://localhost:8000/SPLOM.html for part 1 and http://localhost:8000/parallelCoordinates.html for part 2.
 
